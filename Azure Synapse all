@@ -1,2 +1,61 @@
-Azure Synapse Analytics:
+#Azure Synapse Analytics:
 Azure Synapse Analytics is a limitless analytics service that brings together data integration, enterprise data warehousing and big data analytics
+
+# Linked service:
+In Azure Synapse Analytics, a linked service is where you define your connection information to other services. In this section, you'll add Azure Synapse Analytics and Azure Data Lake Gen 2 as linked services. Open the Synapse Studio and go to the Manage tab. Under External connections, select Linked services.
+
+#Synapse sql:
+-Synapse sql is ability to do T sql analytics in synapse analysiytics
+-Synapse sql has two consumption model: Dedicated & Server less
+-synapse  Pool actually help you to run sql script
+
+# Synapse workspace:
+-Synapse Workspace is a collaboration place for doing cloud-based enterprise analytics in Azure
+
+-A Workspace will be associated with ADLS Gen2 and File System
+
+-A workspace allows you to perform analytics with SQL and Apache spark
+
+-Resources available for SQL and Spark analytics are organized into SQL and Spark pools.
+
+#Apache Spark for Synapse:
+
+• This gives ability to do Spark based analytics in Synapse Workspace
+
+• You can create Apache spark pools in Workspace. When you start using that Spark Pool, the workspaces creates spark session to handle the resources associated with that session
+
+• There are two ways to use spark in Synapse
+
+• Spark Notebooks - For doing data science and data engineering using Scala, PySpark, C# and Spark SQL
+
+• Spark Job definitions - For running batch Spark jobs using jar files
+
+#Pipelines: integrate >+>pipeline
+
+• Pipelines are how Azure Synapse provides Data Integration - allowing you to move data between services and orchestrate activities.
+
+• Pipeline are logical grouping of activities that perform a task together.
+
+• Activities defines actions within a Pipeline to perform on data such as copying data, running a Notebook or a SQL script.
+
+⚫ Data flows are a specific kind of activity that provide a no-code experience for doing data transformation
+
+that uses Synapse Spark under-the-covers.
+
+• Trigger - Executes a pipeline. It can be run manually or automatically (schedule, tumbling window or event based)
+
+• Integration dataset - Named view of data that simply points or references the data to be used in an activity as input and output. It belongs to a Linked Service.
+
+
+#Built in Serverless SQL Pool
+
+• Serverless SQL pools let you use SQL without having to reserve capacity. Billing for a serverless SQL pool is based on the amount of data processed to run the query
+
+Every workspace comes with a pre-configured serverless SQL pool called Built-in.
+
+OPENROWSET() function allows you to access files in Azure Storage and returns the content as a set of rows
+
+The data can be visualized in Synapse Studio by switching from the Table to the Chart view. You can choose among different chart types, such as Area, Bar, Column, Line, Pie, and Scatter.
+
+
+#
