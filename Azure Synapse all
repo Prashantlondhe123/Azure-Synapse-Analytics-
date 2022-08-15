@@ -85,7 +85,38 @@ We can create Server less Spark Pool under Management hub menu in Synapse Studio
 
 • Replicate
 
+#Compute Node:
+• The Compute nodes provide the computational power.
+• In dedicated SQL pool, distributions map to Compute nodes for processing.
+• In serverless SQL pool, each Compute node is assigned task(small query)
+• Data Movement Service (DMS) coordinates data movement between the Compute nodes.
+
+#Distribution:
+• A distribution is the basic unit of storage and processing.
+• When data is ingested into dedicated SQL pool, the data is sharded into distributions to optimize the performance of the system. You can choose which sharding pattern to use to distribute the data when you define the table. These sharding patterns are supported:
+• Hash
+• Round Robin
+• Replicate
+
+• When dedicated SQL pool runs a query, the work is divided into 60 smaller queries that run in parallel.
+
+#Hash-distributed tables:
+• A hash distributed table can deliver the highest query performance for joins and aggregations on large tables.
+• Each row belongs to one distribution.
+• A deterministic hash algorithm assigns each row to one distribution.
+• The number of table rows per distribution varies as shown by the different size of table
+
+#Round-robin distributed tables:
+-A round-robin table is the simplest table to create and delivers fast performance when used as a staging table for loads.
+-It is quick to load data into a round-robin table, but query performance can often be better with hash distributed tables.
+
+#Replicated tables:
+-A replicated table provides the fastest query performance for small tables.
+
 #
+
+
+
 #################################################################### CODE ########################################################################################
 # Select top 100 rows:
 SELECT
