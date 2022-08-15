@@ -61,9 +61,31 @@ The data can be visualized in Synapse Studio by switching from the Table to the 
 #Dedicated SQL Pool:
 
 Dedicated SQL Pool - consumes billable resources if its active. You can pause the pool to reduce costs
-
 Your dedicated SQL Pool will be associated with dedicated SQL database
 
+#Create server less Spark Pool:
+Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications.
+We can create Server less Spark Pool under Management hub menu in Synapse Studio
+
+#Understand Server less Spark Pool:
+-A serverless Spark pool is a way of indicating how a user wants to work with Spark. When you start using a pool a Spark session is created if needed.
+-The pool controls how many Spark resources will be used by that session and how long the session will last before it automatically pauses.
+- You pay for spark resources used during that session not for the pool itself.
+-This is similar to how a serverless SQL pool works. You no need to worry about managing clusters
+
+#Synapse SQL Architecture Components:
+
+• Synapse SQL uses a node-based architecture. Applications connect and issue T-SQL commands to a Control node, which is the single point of entry for Synapse SQL.
+
+• When data is ingested into dedicated SQL pool, the data is sharded into distributions to optimize the performance of the system. You can choose which sharding pattern to use to distribute the data when you define the table. These sharding patterns are supported:
+
+• Hash
+
+• Round Robin
+
+• Replicate
+
+#
 #################################################################### CODE ########################################################################################
 # Select top 100 rows:
 SELECT
