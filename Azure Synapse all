@@ -64,4 +64,21 @@ Dedicated SQL Pool - consumes billable resources if its active. You can pause th
 
 Your dedicated SQL Pool will be associated with dedicated SQL database
 
+#################################################################### CODE ########################################################################################
+# Select top 100 rows:
+SELECT
+ *
+FROM
+    OPENROWSET(
+        BULK 'https://kkartik1001.dfs.core.windows.net/prashant/taxi+_zone_lookup.csv',
+        FORMAT = 'CSV', 
+        HEADER_ROW = TRUE,
+        PARSER_VERSION = '2.0'
+    ) AS [result]
+
+# 
+
+
+
+
 #
