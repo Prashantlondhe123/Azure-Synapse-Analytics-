@@ -113,9 +113,50 @@ We can create Server less Spark Pool under Management hub menu in Synapse Studio
 #Replicated tables:
 -A replicated table provides the fastest query performance for small tables.
 
+#Serverless SQL Pool:
+• Every Azure Synapse Analytics workspace comes with serverless SQL pool endpoints that you can use to query data in the Azure Data Lake (Parquet, Delta Lake, delimited text formats), Cosmos DB, or Dataverse.
+• It allows you query data with T-SQL Syntax directly without need to copy or load data into a specialized store.
+• Its true Pay as you go service. You will only pay for query execution
+
+#Serverless SQL Pool Benefits:
+• Basic discovery and exploration
+• Logical data warehouse(LDW)
+• Data transformation
+
+#T-SQL Support:
+• Serverless SQL pool offers T-SQL querying surface area(LDW).
+• Databases-serverless SQL pool endpoint can have multiple databases.
+• Schemas - Within a database, there can be one or many object ownership groups called schemas.
+• Views, stored procedures, inline table value functions
+• External resources - data sources, file formats, and tables
+• Serverless SQL pool has no local storage, only metadata objects are stored in databases. Therefore, T-SQL related to the following concepts isn't supported:
+
+• Tables
+.Triggers
+• Materialized views
+
+. DDL statements other than ones related to views and security
+• DML statements
+
+#External Data source
+• External data sources are used to establish connectivity with external resources such as Azure Storages. It is primarily used for Data virtualization and data load using Polybase.
+
+CREATE EXTERNAL DATA SOURCE SqlOnDemand Demo WITH LOCATION = "https://sqlondemandstorage.blob.core.windows.net, CREDENTIAL = sqlondemand
+
+#Credential:
+• A database scoped credential is a record that contains the authentication information that is required to connect to a resource outside SQL Server.
+
+CREATE DATABASE SCOPED CREDENTIAL sqlondemand
+
+WITH IDENTITY="SHARED ACCESS SIGNATURE',
+
+SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10
+
+14T12:10:252&se=2061-12 31T12:10:002&sig=KISU2ullCscyTSOAnOnozEpo4t05JAGGBvw/JX2/guw='
+
+Note, Before creating a database scoped credential, the database must have a master key to protect the credential.
+
 #
-
-
 
 #################################################################### CODE ########################################################################################
 # Select top 100 rows:
