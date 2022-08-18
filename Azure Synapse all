@@ -196,3 +196,6 @@ FROM
         FORMAT = 'PARQUET'
     ) AS [result]
 
+===>Execute:  select * from EXTTAXI
+
+#
