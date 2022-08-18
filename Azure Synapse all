@@ -178,4 +178,21 @@ WITH
 )
 
 
-#
+#CEATS:
+CREATE EXTERNAL TABLE EXTTAXI
+WITH
+(
+LOCATION='/prashant/EXTTAXI.parquet/',
+DATA_SOURCE=demodatasource,
+FILE_FORMAT=ParquetFileFormat
+)
+AS 
+
+SELECT
+    Locationid,Borough
+FROM
+    OPENROWSET(
+        BULK 'https://kkartik1001.dfs.core.windows.net/prashant/taxidata.parquet/**',
+        FORMAT = 'PARQUET'
+    ) AS [result]
+
