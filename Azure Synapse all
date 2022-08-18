@@ -147,32 +147,25 @@ CREATE EXTERNAL DATA SOURCE SqlOnDemand Demo WITH LOCATION = "https://sqlondeman
 • A database scoped credential is a record that contains the authentication information that is required to connect to a resource outside SQL Server.
 
 CREATE DATABASE SCOPED CREDENTIAL sqlondemand
-
 WITH IDENTITY="SHARED ACCESS SIGNATURE',
-
 SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10
-
 14T12:10:252&se=2061-12 31T12:10:002&sig=KISU2ullCscyTSOAnOnozEpo4t05JAGGBvw/JX2/guw='
-
 Note, Before creating a database scoped credential, the database must have a master key to protect the credential.
 
-#
+#create external data source:
+Use prashant
+GO
 
-#################################################################### CODE ########################################################################################
-# Select top 100 rows:
-SELECT
- *
-FROM
-    OPENROWSET(
-        BULK 'https://kkartik1001.dfs.core.windows.net/prashant/taxi+_zone_lookup.csv',
-        FORMAT = 'CSV', 
-        HEADER_ROW = TRUE,
-        PARSER_VERSION = '2.0'
-    ) AS [result]
+CREATE MASTER KEY ENCRYPTION BY PASSWORD ='Synapse@123'
 
-# 
-
-
+CREATE DATABASE SCOPED CREDENTIAL democredential
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+SECRET='sv=2021-06-08&ss=bfqt&srt=sco&sp=rwdlacupyx&se=2022-08-18T14:08:37Z&st=2022-08-18T06:08:37Z&spr=https&sig=xjp3ENOf0svySd81GPGKcDdO4KFZVKyKgAvUQuan0ME%3D'
+GO
+CREATE EXTERNAL DATA SOURCE demodatasource WITH (
+     LOCATION='https://kkartik1001.dfs.core.windows.net/',
+    CREDENTIAL= democredential
+);
 
 
 #
