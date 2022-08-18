@@ -153,6 +153,7 @@ SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10
 Note, Before creating a database scoped credential, the database must have a master key to protect the credential.
 
 #create external data source:
+
 Use prashant
 GO
 
@@ -166,6 +167,15 @@ CREATE EXTERNAL DATA SOURCE demodatasource WITH (
      LOCATION='https://kkartik1001.dfs.core.windows.net/',
     CREDENTIAL= democredential
 );
+
+
+# create External fileformat:
+
+CREATE EXTERNAL FILE FORMAT ParquetFileFormat
+WITH
+(    FORMAT_TYPE= PARQUET,
+    DATA_COMPRESSION= 'org.apache.hadoop.io.compress.SnappyCodec'
+)
 
 
 #
