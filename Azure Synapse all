@@ -152,7 +152,7 @@ SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10
 14T12:10:252&se=2061-12 31T12:10:002&sig=KISU2ullCscyTSOAnOnozEpo4t05JAGGBvw/JX2/guw='
 Note, Before creating a database scoped credential, the database must have a master key to protect the credential.
 
-#create external data source:
+#create external data source: csv/Parquet
 
 Use prashant
 GO
@@ -197,5 +197,14 @@ FROM
     ) AS [result]
 
 ===>Execute:  select * from EXTTAXI
+
+############## Spark Pool #######
+# Parameterize notebook :
+Step1: create notebook 1
+Step2: create first cell as parameters 
+  Name:'Prashant'
+Step 3:use that parameters in the 2 nd cell.
+Step4:open another notebook 
+  %run /notebook2 {'Name':"Sushant"}
 
 #
