@@ -207,4 +207,25 @@ Step 3:use that parameters in the 2 nd cell.
 Step4:open another notebook 
   %run /notebook2 {'Name':"Sushant"}
 
-#
+#Microsoft Spark Utilities (MSSparkUtils)
+• Microsoft Spark Utilities (MSSparkUtils) is a built-in package to help you easily perform common tasks.
+• You can use MSSparkUtils to work with file systems, to get environment variables, to chain notebooks together, and to work with secrets.
+• MSSparkUtils are available in PySpark(Python), Scala & .NET Spark(c#)
+
+Code> from notebookutils import mssparkutils
+      mssparkutils.fs.ls
+      mssparkutils.fs.help()
+      mssparkutils.
+
+#Environment Utilities
+• Environment Utilities helps to get environment details of synapse notebook execution.
+mssparkutils.env.help() - To get overview of available methods.
+GetUserName(): returns user name 
+GetUserId():returns unique user id
+ GetJobId(): returns job id 
+GetWorkspaceName(): returns workspace name
+ GetPoolName(): returns Spark pool name
+ GetClusterId(): returns cluster id
+
+Code> mssparkutils.env.GetClusterID()
+      
