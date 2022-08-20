@@ -217,4 +217,13 @@ GetWorkspaceName(): returns workspace name
 
 Code> mssparkutils.env.GetClusterID()
 
-#
+#Spark Job Definition:
+   Spark Jobs lets you run Spark applications on clusters and monitor their status.
+
+#Package Management:
+• Libraries provide reusable code that you might want to include in your programs or projects.
+• To make third party or locally built code available to your applications, install a library onto one of your serverless Apache Spark pools or notebook session.
+• There are 3 levels of package installation.
+• Default level
+• Spark Pool level
+• Session Level
