@@ -217,10 +217,25 @@ AS
 select * from  dbo.employees
 
 
-#
+#External Tables with Synapse SQL:
+• An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage. External tables are used to read data from files or write data to files in Azure Storage.
+• With Synapse SQL, you can use external tables to read external data using dedicated SQL pool or serverless SQL pool.
 
+Steps to create External Table
+• Create external data source
+• Create external file format
+• Create external table
 
+#External Tables Use:
+• You can use external tables to:
+• Query Azure Blob Storage and Azure Data Lake Gen2 with Transact-SQL statements.
+• Store query results to files in Azure Blob Storage or Azure Data Lake Storage using CETAS
+• Import data from Azure Blob Storage and Azure Data Lake Storage and store it in a dedicated SQL pool (only Hadoop tables in dedicated pool).
 
+#Types of External Tables:
+• Depending on the type of the external data source, you can use two types of external tables:
+• Hadoop external tables
+• Native external tables
 
 
 
