@@ -186,6 +186,44 @@ FROM
 
 ===>Execute:  select * from EXTTAXI
 
+#CTAS(Create Table as SELECT):
+• The CREATE TABLE AS SELECT (CTAS) statement is one of the most important T SQL features available.
+• CTAS is a parallel operation that creates a new table based on the output of a SELECT statement. CTAS is the simplest and fastest way to create and insert data into a table with a single command.
+
+#SELECT INTO vs CTAS
+-CTAS is a more customizable version of the SELECT...INTO statement.
+- SELECT...INTO doesn't allow you to change either the distribution method or the index type as part of the operation.
+SELECT...INTO uses the default distribution type of ROUND ROBIN, and the default table structure of CLUSTERED COLUMNSTORE INDEX.
+- With CTAS, on the other hand, you can specify both the distribution of the table data as well as the table structure type
+
+CREATE TABLE [dbo].[FactInternetSales_new]
+WITH
+
+(
+
+DISTRIBUTION = ROUND_ROBIN ,
+ CLUSTERED COLUMNSTORE INDEX
+)
+AS
+SELECT * FROM [dbo].[FactInternetSales];
+
+#1)CREATE TABLE dbo.employeesNew
+WITH
+(
+DISTRIBUTION HASH(empe), 
+CLUSTERED COLUMNSTORE INDEX
+)
+AS
+select * from  dbo.employees
+
+
+#
+
+
+
+
+
+
 ############## Spark Pool #######
 # Parameterize notebook :
 Step1: create notebook 1
