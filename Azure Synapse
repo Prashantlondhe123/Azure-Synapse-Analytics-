@@ -1,3 +1,21 @@
+#What is the Difference Between a Dedicated SQL Pool and Serverless SQL Pool?
+Synapse has two consumption models –
+#Dedicated sql pool:
+-Dedicated SQL Pool where you provision a server based on your needs and you get the ability to pause, resume and scale in/out based on your requirements
+-One of the key differences in the models is the architecture Dedicated SQL Pool uses Massively Parallel Processing (MPP) that distributes the query among the nodes and DMS to share the data between the nodes 
+-Dedicated SQL Pool uses Distributed Query Processing Engine where the queries are assigned to different compute nodes along with the data needed to execute the query
+
+#Serverless sql pool:
+-On the other side, you have Serverless SQL Pool where you do not need to provision a server, you use the built-in server created and managed by Microsoft and pay for computing based on the requirement of the query
+-no data is shared in Serverless SQL Pool
+-There is no data movement between the compute nodes in Serverless SQL Poo
+
+#When and Why Use Serverless SQL Pool?
+-When you are running low on budget
+-Explore, discover, and analyze the data stored in Azure storage
+-Create a Logical Data warehouse
+-Create Reports in Synapse PowerBI
+
 #Azure Synapse Analytics:
 Azure Synapse Analytics is a limitless analytics service that brings together data integration, enterprise data warehousing and big data analytics
 
