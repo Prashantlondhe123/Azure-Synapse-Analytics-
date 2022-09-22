@@ -1,12 +1,18 @@
 #What is the Difference Between a Dedicated SQL Pool and Serverless SQL Pool?
 Synapse has two consumption models –
 #Dedicated sql pool:
--Dedicated SQL Pool where you provision a server based on your needs and you get the ability to pause, resume and scale in/out based on your requirements
--One of the key differences in the models is the architecture Dedicated SQL Pool uses Massively Parallel Processing (MPP) that distributes the query among the nodes and DMS to share the data between the nodes 
--Dedicated SQL Pool uses Distributed Query Processing Engine where the queries are assigned to different compute nodes along with the data needed to execute the query
+-Dedicated SQL Pool where you provision a server based on your needs and you get the ability to pause, 
+resume and scale in/out based on your requirements
+-One of the key differences in the models is the architecture Dedicated SQL Pool uses Massively
+ Parallel Processing (MPP) that distributes the query among the nodes and DMS to share the data
+ between the nodes 
+-Dedicated SQL Pool uses Distributed Query Processing Engine where the queries are assigned to
+ different compute nodes along with the data needed to execute the query
 
 #Serverless sql pool:
--On the other side, you have Serverless SQL Pool where you do not need to provision a server, you use the built-in server created and managed by Microsoft and pay for computing based on the requirement of the query
+-On the other side, you have Serverless SQL Pool where you do not need to provision a server, you use
+ the built-in server created and managed by Microsoft and pay for computing based on the requirement
+ of the query
 -no data is shared in Serverless SQL Pool
 -There is no data movement between the compute nodes in Serverless SQL Poo
 
@@ -17,10 +23,14 @@ Synapse has two consumption models –
 -Create Reports in Synapse PowerBI
 
 #Azure Synapse Analytics:
-Azure Synapse Analytics is a limitless analytics service that brings together data integration, enterprise data warehousing and big data analytics
+Azure Synapse Analytics is a limitless analytics service that brings together data integration,
+enterprise data warehousing and big data analytics
 
 # Linked service:
-In Azure Synapse Analytics, a linked service is where you define your connection information to other services. In this section, you'll add Azure Synapse Analytics and Azure Data Lake Gen 2 as linked services. Open the Synapse Studio and go to the Manage tab. Under External connections, select Linked services.
+In Azure Synapse Analytics, a linked service is where you define your connection information to other
+services. In this section, you'll add Azure Synapse Analytics and Azure Data Lake Gen 2 as linked 
+services. Open the Synapse Studio and go to the Manage tab. Under External connections, select Linked
+services.
 
 #Synapse sql:
 -Synapse sql is ability to do T sql analytics in synapse analysiytics
@@ -35,33 +45,42 @@ In Azure Synapse Analytics, a linked service is where you define your connection
 
 #Apache Spark for Synapse:
 • This gives ability to do Spark based analytics in Synapse Workspace
-• You can create Apache spark pools in Workspace. When you start using that Spark Pool, the workspaces creates spark session to handle the resources associated with that session
+• You can create Apache spark pools in Workspace. When you start using that Spark Pool, the workspaces
+ creates spark session to handle the resources associated with that session
 • There are two ways to use spark in Synapse
 • Spark Notebooks - For doing data science and data engineering using Scala, PySpark, C# and Spark SQL
 • Spark Job definitions - For running batch Spark jobs using jar files
 
 #Pipelines: integrate >+>pipeline
-• Pipelines are how Azure Synapse provides Data Integration - allowing you to move data between services and orchestrate activities.
+• Pipelines are how Azure Synapse provides Data Integration - allowing you to move data between services 
+and orchestrate activities.
 • Pipeline are logical grouping of activities that perform a task together.
-• Activities defines actions within a Pipeline to perform on data such as copying data, running a Notebook or a SQL script.
-. Data flows are a specific kind of activity that provide a no-code experience for doing data transformation
+• Activities defines actions within a Pipeline to perform on data such as copying data, running a
+ Notebook or a SQL script.
+. Data flows are a specific kind of activity that provide a no-code experience for doing data
+ transformation
 
 that uses Synapse Spark under-the-covers.
 
-• Trigger - Executes a pipeline. It can be run manually or automatically (schedule, tumbling window or event based)
+• Trigger - Executes a pipeline. It can be run manually or automatically (schedule, tumbling window 
+or event based)
 
-• Integration dataset - Named view of data that simply points or references the data to be used in an activity as input and output. It belongs to a Linked Service.
+• Integration dataset - Named view of data that simply points or references the data to be used in 
+an activity as input and output. It belongs to a Linked Service.
 
 
 #Built in Serverless SQL Pool
 
-• Serverless SQL pools let you use SQL without having to reserve capacity. Billing for a serverless SQL pool is based on the amount of data processed to run the query
+• Serverless SQL pools let you use SQL without having to reserve capacity. Billing for a serverless
+ SQL pool is based on the amount of data processed to run the query
 
 Every workspace comes with a pre-configured serverless SQL pool called Built-in.
 
-OPENROWSET() function allows you to access files in Azure Storage and returns the content as a set of rows
+OPENROWSET() function allows you to access files in Azure Storage and returns the content as a set 
+of rows
 
-The data can be visualized in Synapse Studio by switching from the Table to the Chart view. You can choose among different chart types, such as Area, Bar, Column, Line, Pie, and Scatter.
+The data can be visualized in Synapse Studio by switching from the Table to the Chart view. You can 
+choose among different chart types, such as Area, Bar, Column, Line, Pie, and Scatter.
 
 
 #Dedicated SQL Pool:
@@ -70,20 +89,26 @@ Dedicated SQL Pool - consumes billable resources if its active. You can pause th
 Your dedicated SQL Pool will be associated with dedicated SQL database
 
 #Create server less Spark Pool:
-Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications.
+Apache Spark is a parallel processing framework that supports in-memory processing to boost the 
+performance of big-data analytic applications.
 We can create Server less Spark Pool under Management hub menu in Synapse Studio
 
 #Understand Server less Spark Pool:
--A serverless Spark pool is a way of indicating how a user wants to work with Spark. When you start using a pool a Spark session is created if needed.
--The pool controls how many Spark resources will be used by that session and how long the session will last before it automatically pauses.
+-A serverless Spark pool is a way of indicating how a user wants to work with Spark. When you start 
+using a pool a Spark session is created if needed.
+-The pool controls how many Spark resources will be used by that session and how long the session will
+ last before it automatically pauses.
 - You pay for spark resources used during that session not for the pool itself.
 -This is similar to how a serverless SQL pool works. You no need to worry about managing clusters
 
 #Synapse SQL Architecture Components:
 
-• Synapse SQL uses a node-based architecture. Applications connect and issue T-SQL commands to a Control node, which is the single point of entry for Synapse SQL.
+• Synapse SQL uses a node-based architecture. Applications connect and issue T-SQL commands to a
+ Control node, which is the single point of entry for Synapse SQL.
 
-• When data is ingested into dedicated SQL pool, the data is sharded into distributions to optimize the performance of the system. You can choose which sharding pattern to use to distribute the data when you define the table. These sharding patterns are supported:
+• When data is ingested into dedicated SQL pool, the data is sharded into distributions to optimize
+ the performance of the system. You can choose which sharding pattern to use to distribute the data
+ when you define the table. These sharding patterns are supported:
 
 • Hash
 
@@ -99,29 +124,38 @@ We can create Server less Spark Pool under Management hub menu in Synapse Studio
 
 #Distribution:
 • A distribution is the basic unit of storage and processing.
-• When data is ingested into dedicated SQL pool, the data is sharded into distributions to optimize the performance of the system. You can choose which sharding pattern to use to distribute the data when you define the table. These sharding patterns are supported:
+• When data is ingested into dedicated SQL pool, the data is sharded into distributions to optimize 
+the performance of the system. You can choose which sharding pattern to use to distribute the data
+ when you define the table. These sharding patterns are supported:
 • Hash
 • Round Robin
 • Replicate
 
-• When dedicated SQL pool runs a query, the work is divided into 60 smaller queries that run in parallel.
+• When dedicated SQL pool runs a query, the work is divided into 60 smaller queries that run in
+ parallel.
 
 #Hash-distributed tables:
-• A hash distributed table can deliver the highest query performance for joins and aggregations on large tables.
+• A hash distributed table can deliver the highest query performance for joins and aggregations on
+ large tables.
 • Each row belongs to one distribution.
 • A deterministic hash algorithm assigns each row to one distribution.
 • The number of table rows per distribution varies as shown by the different size of table
 
 #Round-robin distributed tables:
--A round-robin table is the simplest table to create and delivers fast performance when used as a staging table for loads.
--It is quick to load data into a round-robin table, but query performance can often be better with hash distributed tables.
+-A round-robin table is the simplest table to create and delivers fast performance when used as a 
+staging table for loads.
+-It is quick to load data into a round-robin table, but query performance can often be better with
+ hash distributed tables.
 
 #Replicated tables:
 -A replicated table provides the fastest query performance for small tables.
 
 #Serverless SQL Pool:
-• Every Azure Synapse Analytics workspace comes with serverless SQL pool endpoints that you can use to query data in the Azure Data Lake (Parquet, Delta Lake, delimited text formats), Cosmos DB, or Dataverse.
-• It allows you query data with T-SQL Syntax directly without need to copy or load data into a specialized store.
+• Every Azure Synapse Analytics workspace comes with serverless SQL pool endpoints that you can use
+ to query data in the Azure Data Lake (Parquet, Delta Lake, delimited text formats), Cosmos DB, or
+ Dataverse.
+• It allows you query data with T-SQL Syntax directly without need to copy or load data into a
+ specialized store.
 • Its true Pay as you go service. You will only pay for query execution
 
 #Serverless SQL Pool Benefits:
@@ -135,7 +169,8 @@ We can create Server less Spark Pool under Management hub menu in Synapse Studio
 • Schemas - Within a database, there can be one or many object ownership groups called schemas.
 • Views, stored procedures, inline table value functions
 • External resources - data sources, file formats, and tables
-• Serverless SQL pool has no local storage, only metadata objects are stored in databases. Therefore, T-SQL related to the following concepts isn't supported:
+• Serverless SQL pool has no local storage, only metadata objects are stored in databases. Therefore,
+ T-SQL related to the following concepts isn't supported:
 
 • Tables
 .Triggers
@@ -145,7 +180,8 @@ We can create Server less Spark Pool under Management hub menu in Synapse Studio
 • DML statements
 
 #External Data source
-• External data sources are used to establish connectivity with external resources such as Azure Storages. It is primarily used for Data virtualization and data load using Polybase.
+• External data sources are used to establish connectivity with external resources such as Azure
+ Storages. It is primarily used for Data virtualization and data load using Polybase.
 
 CREATE EXTERNAL DATA SOURCE SqlOnDemand Demo WITH LOCATION = "https://sqlondemandstorage.blob.core.windows.net, CREDENTIAL = sqlondemand
 
