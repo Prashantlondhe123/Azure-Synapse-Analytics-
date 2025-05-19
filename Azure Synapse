@@ -8,6 +8,9 @@ resume and scale in/out based on your requirements
  between the nodes 
 -Dedicated SQL Pool uses Distributed Query Processing Engine where the queries are assigned to
  different compute nodes along with the data needed to execute the query
+- Compute code : 1-60 
+# Control Node in dedicated sql pool : control node is like driver node 
+# Compute Node in dedicated sql pool : compute node is like slave node 
 
 #Serverless sql pool:
 -On the other side, you have Serverless SQL Pool where you do not need to provision a server, you use
@@ -15,6 +18,9 @@ resume and scale in/out based on your requirements
  of the query
 -no data is shared in Serverless SQL Pool
 -There is no data movement between the compute nodes in Serverless SQL Poo
+
+# Dedicated SQL pool × Server less sql pool :
+1) for dedicated sql pool , we need to pay for database , whereas in server less sql pool we need to pay for data processing.
 
 #When and Why Use Serverless SQL Pool?
 -When you are running low on budget
